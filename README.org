@@ -1,0 +1,15 @@
+#+TITLE: dotfiles for shore
+
+The files included here should be enough to replicate the look of the post [[https://www.reddit.com/r/unixporn/comments/74fewg/xmonad_shore/][here]].
+You will need to find and install the following things for your distribution to obtain a minimal working version:
+
+- xmonad
+- xmonad-contrib
+- conky
+- dzen2
+- dmenu
+
+* Installation
+
+1. Clone the repository
+2. Move the things you want to use to ~/.[name]

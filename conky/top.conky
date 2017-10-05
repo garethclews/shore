@@ -1,0 +1,20 @@
+conky.config = {
+  background = false,
+  out_to_console = true,
+  out_to_x = false,
+  update_interval = 1,
+  use_xft = yes,
+  own_window_hints = "undecorated,below,sticky,skip_taskbar,skip_pager",
+  override_utf8_locale = yes
+}
+
+conky.text = [[
+^fg(\#505e73)^ca(1, mpc toggle)^ca(4, mpc prev)^ca(5, mpc next) ${exec mpc current -f %ARTIST%\ -\ %title%}   \
+^fg()(${mpd_elapsed}/${mpd_length}) \
+^ca()^ca()^ca()  \
+^fg(\#505E73)   //   ^fg() \
+^i(/home/karetsu/.icons/stlarch/vol7.xbm) ^ca(4, amixer set Master 2%+)^ca(5, amixer set Master 2%-) \
+${exec amixer sget Master | grep -m1 "]" | cut -d "[" -f2 | cut -d "]" -f1}  \
+^ca()^ca()   \
+^bg(\#da8548)^fg(\#1b2229)      ${time %R}      ^bg()^fg()
+]]

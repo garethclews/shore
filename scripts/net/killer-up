@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+if [[ $(ifstat -p | grep enp7s0 | awk '{print $2}') -gt 0 ]]; then
+   print "^fg(#da8548)";
+else;
+    print "^fg()";
+fi;

@@ -1,0 +1,29 @@
+! Based on fs0cs redly config
+
+#include </home/karetsu/.config/terms/doom>
+
+! Terminals
+Xft.dpi:                        96
+xterm*faceName:                 xft:Fira Mono for Powerline:style=regular:pixelsize=10, xft:Noto Emoji, xft:Wuncon Siji
+URxvt*termName:                 rxvt
+URxvt*font:                     xft:Fira Mono for Powerline:style=Regular:pixelsize=10
+URxvt*boldfont:			        xft:Fira Mono for Powerline:style=Bold:pixelsize=10, xft:Noto Emoji, xft:Wuncon Siji
+URxvt.depth:                    32
+URxvt*lineSpace:                1
+URxvt.letterSpace:              0
+URxvt.iso14755:                 false
+URxvt.iso14755_52:              false
+URxvt*geometry:                 65x17
+URxvt.scrollBar:                false
+URxvt*loginShell:               true
+URxvt.internalBorder:           35
+URxvt.perl-ext-common:          default,clipboard
+URxvt.keysym.Shift-Control-C:   perl:clipboard:copy
+URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
+URxvt.clipboard.autocopy:       true
+URxvt*urgentOnBell:             true
+URxvt*visualBell:               false
+
+
+! DZEN
+dzen2.font:                     xft:Fira Mono for Powerline:style=Regular:pixelsize=12, xft:Noto Emoji, xft:Wuncon Siji

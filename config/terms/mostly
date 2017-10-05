@@ -1,0 +1,41 @@
+! -*- mostly-bright -*-
+
+
+! general colour guides (base16 later)
+#define bg       #f3f3f3
+#define fg       #707070
+#define black    #909090
+#define bblack   #707070
+#define red      #ed5466
+#define green    #a1d569
+#define yellow   #f59335
+#define blue     #4ec2e8
+#define magenta  #d2a4b4
+#define cyan     #95c1c0
+#define white    #d3d3d3
+
+! Colors
+*background:   bg
+*foreground:   fg
+*cursorColor:  wht
+
+
+! Light16
+*color0:    #d3d3d3  ! white
+*color1:    #ef6b7b  ! red
+*color2:    #a1d569  ! green
+*color3:    #f59335  ! yellow
+*color4:    #4ec2e8  ! blue
+*color5:    #fec7cd  ! magenta
+*color6:    #95c1c0  ! cyan
+*color7:    #707070  ! black
+
+! Dark16
+*color8:    #b3b3b3  ! white
+*color9:    #ed5466  ! red
+*color10:   #afdb80  ! green
+*color11:   #f59335  ! yellow
+*color12:   #5dc7ea  ! blue
+*color13:   #d2a4b4  ! magenta
+*color14:   #75a1a0  ! cyan
+*color15:   #909090  ! black

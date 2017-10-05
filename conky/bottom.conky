@@ -1,0 +1,25 @@
+conky.config = {
+  background = false,
+  out_to_console = true,
+  out_to_x = false,
+  update_interval = 1,
+  use_xft = yes,
+  use_spacer = "left",
+  own_window_hints = "undecorated,below,sticky,skip_taskbar,skip_pager"
+}
+
+conky.text = [[
+^fg(\#ff6c6b) ^i(/home/karetsu/.icons/stlarch/arch1.xbm) ^fg() ${execpi 3600 checkupdates | wc -l}  \
+^fg(\#505E73)  //   ^fg() \
+^i(/home/karetsu/.icons/stlarch/cpu10.xbm)  ${if_existing /sys/class/hwmon/hwmon0/temp1_input}${hwmon 1 temp 1}°C${else}temp not detected${endif} \
+^fg(\#505E73)  //   ^fg()\
+^i(/home/karetsu/.icons/stlarch/cpu1.xbm)  ${execi 60 nvidia-settings -query GPUCoreTemp| grep gpu | perl -ne 'print $1 if /GPUCoreTemp.*?: (\d+)./;'}°C \
+^fg(\#505E73)  //   ^fg()\
+^fg() ^i(/home/karetsu/.icons/stlarch/info1.xbm) ^fg() \
+${execi 0.1 ~/.scripts/net/killer-down}^i(/home/karetsu/.icons/stlarch/downarrow5.xbm)^fg()\
+${execi 0.1 ~/.scripts/net/killer-up} ^i(/home/karetsu/.icons/stlarch/uparrow5.xbm)^fg()\
+^fg(\#505E73)  //   ^fg()\
+^fg() ^i(/home/karetsu/.icons/stlarch/wireless1.xbm) ^fg() \
+${execi 0.1 ~/.scripts/net/wifi-down}^i(/home/karetsu/.icons/stlarch/downarrow5.xbm)^fg()\
+${execi 0.1 ~/.scripts/net/wifi-up} ^i(/home/karetsu/.icons/stlarch/uparrow5.xbm)^fg()\
+]]
