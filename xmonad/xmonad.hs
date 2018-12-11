@@ -1,3 +1,15 @@
+--------------------------------------------------------------------------------
+{-
+                       __  ____  __                       _
+                       \ \/ /  \/  | ___  _ __   __ _  __| |
+                        \  /| |\/| |/ _ \| '_ \ / _` |/ _` |
+                        /  \| |  | | (_) | | | | (_| | (_| |
+                       /_/\_\_|  |_|\___/|_| |_|\__,_|\__,_|
+-}
+---------------------------------------------------------------------------------
+
+
+-- Imports ----------------------------------------------------------------------
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
@@ -17,36 +29,46 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.Circle
 import XMonad.Layout.Gaps
+import XMonad.Layout.Tabbed
 
 import XMonad.Actions.CycleWS (prevWS, nextWS)
 
 import System.IO
 
 
--- namd options ----------------------------------------------------------------
+-- named options ----------------------------------------------------------------
+
 -- colours
-normBord = "#343C48"
+normBord = "#1b2229"
 focdBord = "#6986a0"
 fore     = "#DEE3E0"
-back     = "#282c34"
+-- back     = "#282c34" -- for doom
+back     = "#263238" -- for material
 winType  = "#c678dd"
 
+-- borders
+borderWidth  = 1
+normalBorder = normBord
+focusBorder  = focdBord
+
 -- programs
-dmenu = "dmenu_run -x 0 -y 0 -h 24 -w 1920 -fn 'xft:Fira Mono:pixelsize=10' -p 'Run: '"
+dmenu =
+  "dmenu_run                         \
+  \ -x 0                             \
+  \ -y 1416                             \
+  \ -h 24                            \
+  \ -w 2560                          \
+  \ -fn 'xft:Fira Mono:pixelsize=10' \
+  \ -p 'Run: '"
+
 -----------
 
-myWorkspaces    :: [String]
-myWorkspaces    = click $ [" 1 "," 2 "," 3 "," 4 "," 5 "," 6 "," 7 "," 8 "," 9 "]
-                  where click l = [ "^ca(1, xdotool key super+"
-                                  ++ show (n) ++ ")" ++ ws ++ "^ca()" |
-                                  (i,ws) <- zip [1..] l,
-                                  let n = i]
-
-myManageHook = composeAll
-    [ className =? "Firefox"   --> doF(W.shift(myWorkspaces !! 2))
-    , className =? "Nautilus"  --> doFloat
-    , className =? "Gimp"      --> doFloat
-    ]
+myWorkspaces :: [String]
+myWorkspaces = click $ [" 1 "," 2 "," 3 "," 4 "," 5 "]
+  where click l = [ "^ca(1, xdotool key super+"
+                    ++ show (n) ++ ")" ++ ws ++ "^ca()" |
+                    (i,ws) <- zip [1..] l,
+                    let n = i]
 
 -- keys
 mKeys = [ ((modm, xK_p), spawn $ dmenu)
@@ -77,13 +99,17 @@ mKeys = [ ((modm, xK_p), spawn $ dmenu)
                          , sendMessage (DecreaseUp 10)
                          , sendMessage (DecreaseDown 10)
                          ])
-    ] where modm = mod1Mask  -- prefer alt
+    ] where modm = mod1Mask
+              -- mod1Mask  -- prefer alt_l
+
 
 startUp :: X()
 startUp = do
     spawnOnce "compton"
-    spawnOnce "conky -c ~/.conky/bottom.conky | dzen2 -y 1056 -w 1920 -h 24"
-    setWMName "LG3D"
+    setWMName "xmonad"
+    spawn "redshift -l 51.79665:-3.209315"
+    setWMName "xmonad"
+
 
 logbar h = do
     dynamicLogWithPP $ tryPP h
@@ -110,29 +136,30 @@ tryPP h = def
 
 -- layout --
 
-res = ResizableTall 1 (2/100) (1/2) []
-ful = noBorders (fullscreenFull Full)
+resize = ResizableTall 1 (2/100) (1/2) []
+full = noBorders (fullscreenFull Full)
 
 -- useless gap --
+layout = (gaps [(U, 42), (R, 10), (L, 10), (D, 32)] $
+--          avoidStruts (spacing 2 $ resize)) ||| Circle
+           avoidStruts (spacing 2 $ resize)) ||| Circle ||| full
 
-layout = (gaps [(U, 32), (R, 8), (L, 8), (D, 32)] $
-          avoidStruts (spacing 2 $ res)) ||| Circle ||| ful
---           avoidStruts (spacing 2 $ res)) ||| Circle ||| ful
 ------------
 
 main = do
     bar <- spawnPipe panel
     info <- spawnPipe "conky -c ~/.conky/top.conky |\
-                      \dzen2 -x 400 -y 0 -h 24 -w 1520 -p -ta r -e''"
+                      \dzen2 -x 400 -y 10 -h 24 -w 2150 -p -ta r -e''"
     xmonad $ def
         { manageHook = manageDocks <+> manageHook def
         , layoutHook = windowArrange layout
         , startupHook = startUp
         , workspaces = myWorkspaces
         , terminal = "urxvt"
-        , borderWidth = 2
+        , XMonad.borderWidth = 1
         , focusedBorderColor = focdBord
         , normalBorderColor = normBord
         , logHook = logbar bar
+        , modMask = mod1Mask
         } `additionalKeys` mKeys
-        where panel = "dzen2 -ta l -p -w 400 -y 0 -x 0 -h 24 -e ''"
+        where panel = "dzen2 -ta l -p -w 400 -y 10 -x 10 -h 24 -e ''"

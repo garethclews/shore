@@ -1,21 +1,38 @@
-# Set keymap, source profile
-export LANG=en_GB.UTF-8
-setxkbmap gb
+# Set locale and turn numlock on
+export LANG=en_GB.UTF-8 &
+numlockx &
 
 # Load me my Xresources, so long as it finds them
-[[ -f ~/.Xresources ]] && nohup xrdb -merge -I$HOME ~/.Xresources >/dev/null
+#[[ -f ~/.Xresources ]] && nohup xrdb -merge -I$HOME ~/.Xresources >/dev/null
 
 # Set my wallpaper
-~/.fehbg >/dev/null
+#~/.fehbg >/dev/null
 
 # run mpd on login
-[ ! -s ~/.config/mpd/pid  ] && nohup mpd >/dev/null
+#[ ! -s ~/.config/mpd/pid  ] && nohup mpd >/dev/null
 
 # start transmission-daemon - kills any running
 nohup ~/.scripts/transmit >/dev/null
 
 # conky
-conky -c ~/.conky/bottom.conky | dzen2 -y 1056 -w 1920 -h 24 &
+# conky -c ~/.conky/bottom.conky | dzen2 -y 1056 -w 1920 -h 24 &
+## deprecated - adds 10 degrees to CPU
 
 # system
-nohup sh ~/.scripts/trayer 2>/dev/null &
+#nohup sh ~/.scripts/trayer 2>/dev/null&
+#nohup /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 2>/dev/null&
+
+# gnome-keyring daemon for e.g. geary
+#nohup gnome-keyring-daemon --start >/dev/null
+
+# Pretty key lights
+# nohup ckb --background 2>/dev/null&
+
+# Screen blankeningisation
+xautolock -time 1 -locker "slock" -corner -000&
+
+# notifications handler
+dunst &
+
+# infobar, right monitor
+# conky -c ~/.conky/top.conky | dzen2 -x 2560 -y 0 -h 24 -w 1920 -p -ta r -e''

@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
 sleep 5
-trayer --edge top --distance 4 --align left --margin 250 --SetDockType true \
+trayer --edge top --distance 16 --align left --margin 200 --SetDockType true \
        --SetPartialStrut true --widthtype request --transparent true \
-       --tint 0x282c34 --alpha 0 --height 12 &
+       --tint 0x263238 --alpha 0 --height 12 &

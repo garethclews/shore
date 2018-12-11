@@ -1,13 +1,12 @@
 ! Based on fs0cs redly config
-
-#include </home/karetsu/.config/terms/doom>
+#include </home/karetsu/.config/terms/dracula/Xresources>
 
 ! Terminals
 Xft.dpi:                        96
-xterm*faceName:                 xft:Fira Mono for Powerline:style=regular:pixelsize=10, xft:Noto Emoji, xft:Wuncon Siji
+xterm*faceName:                 xft:Fira Mono:style=regular:pixelsize=14, xft:DejaVu Sans Mono:pixelsize=14
 URxvt*termName:                 rxvt
-URxvt*font:                     xft:Fira Mono for Powerline:style=Regular:pixelsize=10
-URxvt*boldfont:			        xft:Fira Mono for Powerline:style=Bold:pixelsize=10, xft:Noto Emoji, xft:Wuncon Siji
+URxvt*font:                     xft:Fira Mono:style=Regular:pixelsize=14, xft:DejaVu Sans Mono:pixelsize=14
+URxvt*boldfont:		        xft:Fira Mono:style=Bold:pixelsize=14, xft:DejaVu Sans Mono:pixelsize=14
 URxvt.depth:                    32
 URxvt*lineSpace:                1
 URxvt.letterSpace:              0
@@ -23,7 +22,9 @@ URxvt.keysym.Shift-Control-V:   perl:clipboard:paste
 URxvt.clipboard.autocopy:       true
 URxvt*urgentOnBell:             true
 URxvt*visualBell:               false
+!!-- clear output with C-l --!!
+URxvt.keysym.Control-l:         command:\033c
 
 
 ! DZEN
-dzen2.font:                     xft:Fira Mono for Powerline:style=Regular:pixelsize=12, xft:Noto Emoji, xft:Wuncon Siji
+dzen2.font:                     xft:Fira Mono:style=Regular:pixelsize=11, xft:DejaVu Sans Mono:pixelsize=11

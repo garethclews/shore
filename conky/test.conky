@@ -1,0 +1,13 @@
+conky.config = {
+  background = false,
+  out_to_console = true,
+  out_to_x = false,
+  update_interval = 1,
+  use_xft = yes,
+  own_window_hints = "undecorated,below,sticky,skip_taskbar,skip_pager",
+  override_utf8_locale = yes
+}
+
+conky.text = [[
+ ${execpi 3600 checkupdates | wc -l}
+]]

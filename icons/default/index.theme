@@ -1,2 +1,5 @@
+# This file is written by LXAppearance. Do not edit.
 [Icon Theme]
-Inherits="Vanilla-DMZ"
+Name=Default
+Comment=Default Cursor Theme
+Inherits=Vanilla-DMZ

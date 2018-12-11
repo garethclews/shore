@@ -1,0 +1,42 @@
+! -*- doom -*- !
+
+! Named colours
+#define bg    #282c34
+#define fg    #bbc2cf
+#define blk   #1b2229
+#define bbk   #282c34
+#define red   #ff6c6b
+#define org   #da8548
+#define grn   #98be65
+#define tea   #4db5bd
+#define ylw   #ecbe7b
+#define blu   #51afef
+#define dbl   #2257a0
+#define mag   #c678dd
+#define vlt   #a9a1e1
+#define cyn   #46d9ff
+#define dcn   #5699af
+#define wht   #dfdfdf
+#define bwt   #bbc2cf
+
+! Colors
+*background:   bg
+*foreground:   fg
+*cursorColor:  cyn
+
+*color0:      bg
+*color8:      blk
+*color1:      org
+*color9:      org
+*color2:      grn
+*color10:     tea
+*color3:      red
+*color11:     red
+*color4:      bwt
+*color12:     blu
+*color5:      mag
+*color13:     vlt
+*color6:      cyn
+*color14:     dcn
+*color7:      wht
+*color15:     bwt

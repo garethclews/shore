@@ -17,6 +17,10 @@ max_line_length = 80
 [*.{py,yaml,yml}]
 indent_size = 4
 
+[*.f95]
+indent_size = 4
+
+
 # makefiles
 [{Makefile,**.mk}]
 # Use tabs for indentation (Makefiles require tabs)

@@ -12,9 +12,20 @@ conky.text = [[
 ^fg(\#505e73)^ca(1, mpc toggle)^ca(4, mpc prev)^ca(5, mpc next) ${exec mpc current -f %ARTIST%\ -\ %title%}   \
 ^fg()(${mpd_elapsed}/${mpd_length}) \
 ^ca()^ca()^ca()  \
-^fg(\#505E73)   //   ^fg() \
+^bg(\#1b2229)     \
 ^i(/home/karetsu/.icons/stlarch/vol7.xbm) ^ca(4, amixer set Master 2%+)^ca(5, amixer set Master 2%-) \
 ${exec amixer sget Master | grep -m1 "]" | cut -d "[" -f2 | cut -d "]" -f1}  \
 ^ca()^ca()   \
-^bg(\#da8548)^fg(\#1b2229)      ${time %R}      ^bg()^fg()
+     ^i(/home/karetsu/.icons/stlarch/arch1.xbm) ^fg() ${execpi 3600 checkupdates | wc -l}  \
+^fg(\#505E73)     ^fg() \
+^i(/home/karetsu/.icons/stlarch/home1.xbm)  ${fs_free_perc /}%  \
+^fg(\#505E73)  ^fg()\
+^i(/home/karetsu/.icons/xbm8x8/diskette.xbm)  ${fs_free_perc /media/frieza}%  \
+^fg(\#505E73)     ^fg() \
+^i(/home/karetsu/.icons/stlarch/cpu10.xbm)  ${if_existing /sys/class/hwmon/hwmon0/temp1_input}${hwmon 1 temp 1}°C${else}temp not detected${endif} \
+^fg(\#505E73)  ^fg()\
+^i(/home/karetsu/.icons/stlarch/cpu1.xbm)  ${execi 60 nvidia-settings -query GPUCoreTemp| grep gpu | perl -ne 'print $1 if /GPUCoreTemp.*?: (\d+)./;'}°C    \
+^bg(\#da8548)^fg(\#1b2229)      ${time %R}      ^bg()^fg()\
+^bg(\#98be65)^fg(\#1b2229)    ${time %A}    ^bg()^fg()\
+^bg(\#51afef)^fg(\#1b2229)    ${time %Y.%m.%d}    ^bg()^fg()
 ]]

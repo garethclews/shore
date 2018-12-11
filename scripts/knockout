@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Stop mpd
+killall mpd
+rm ~/.config/mpd/pid
+
+
+# Stop trayer
+killall trayer
+
+# Stop transmission-daemon
+killall transmission-daemon
+
+# Stop gnome-keyring
+killall gnome-keyring-daemon
+
+# Turn off the lights
+# killall ckb -- note that this doesn't work so we need to find the correct process
+## -- kill $(ps aux | grep "ckb --background" | grep -i grep | awk '{print $2}')
+
+# let each user have different screen locking mechanisms
+killall xautolock

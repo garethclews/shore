@@ -17,4 +17,7 @@ start() {
 }
 
 essid=$(iwgetid wlp5s0 | gawk '{print gensub(/.*ESSID:\"(.+)\"/, "\\1", 1)}')
-if [ $essid = 'judas' ]; then start; fi
+
+# if [ $essid = 'judas' ]; then start; fi
+# -- turned the wireless nic off, just start it
+start

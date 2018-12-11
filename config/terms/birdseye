@@ -1,0 +1,22 @@
+! -- Author:  fs0ciety (based of dkegs spire)
+! -- Created: 2017
+! -- Title:   birdseye
+
+#define bg    [98]#262f33
+#define fg    #a0b6b3
+#define blk   #273034
+#define bblk  #464c50
+#define red   #804f4e
+#define grn   #68786c
+#define ylw   #aba685
+#define blu   #47575f
+#define mag   #74636a
+#define cyn   #526562
+#define wht   #a0b6b3
+#define bred  #804f4e
+#define bgrn  #68786c
+#define bylw  #948d65
+#define bblu  #47575f
+#define bmag  #74636a
+#define bcyn  #526562
+#define bwht #cbcbb7
